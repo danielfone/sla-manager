@@ -4,27 +4,26 @@
 </h2>
 
 <%- if @entries.any? -%>
-<table class="list">
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Company</th>
-      <th>City</th>
-      <th>Email</th>
-      <th>Phone</th>
+      <th>Date</th>
+      <th>Client</th>
+      <th>Application</th>
       <th>Type</th>
+      <th>Note</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @entries.order('completed_at').each do |contact| %>
+    <% @entries.order('completed_at').each do |entry| %>
       <tr>
-        <td><%= link_to contact.name, edit_contact_path(contact) %></td>
-        <td><%= contact.company_name %></td>
-        <td><%= contact.city %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.phone %></td>
-        <td><%= contact.contact_type.humanize %></td>
+        <td><%= link_to entry.completed_at, edit_admin_log_entry_path(entry) %></td>
+        <td><%= entry.client_name %></td>
+        <td><%= entry.application_name %></td>
+        <td><%= entry.entry_type.humanize %></td>
+        <td><%= entry.note %></td>
       </tr>
     <% end %>
   </tbody>
