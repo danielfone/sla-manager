@@ -1,0 +1,21 @@
+body.report {
+  /* Customize container */
+  @media (min-width: 768px) {
+    .container {
+      max-width: 730px;
+    }
+  }
+
+  /* Custom page header */
+  .header {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #959595;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}

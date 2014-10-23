@@ -14,22 +14,17 @@
  *= require_self
  */
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.container h2 {
+  @extend .page-header;
+  margin-top: 0;
+
+  a.action {
+    @extend .btn;
+    @extend .btn-sm;
+    @extend .btn-primary;
+    margin: 0 0.5em;
   }
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-h4 {
-  font-size: 12px;
-  font-weight: 700;
-  color: #959595;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }

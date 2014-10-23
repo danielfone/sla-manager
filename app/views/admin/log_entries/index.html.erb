@@ -1,0 +1,34 @@
+<h2>
+  Log Entries
+  <%= link_to 'Add Entry', new_admin_log_entry_path, class: 'action' %>
+</h2>
+
+<%- if @entries.any? -%>
+<table class="list">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Company</th>
+      <th>City</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entries.order('completed_at').each do |contact| %>
+      <tr>
+        <td><%= link_to contact.name, edit_contact_path(contact) %></td>
+        <td><%= contact.company_name %></td>
+        <td><%= contact.city %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.phone %></td>
+        <td><%= contact.contact_type.humanize %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%- else -%>
+  <p class="alert alert-info">No entries found.</p>
+<%- end -%>
