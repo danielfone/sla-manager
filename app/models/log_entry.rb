@@ -1,6 +1,7 @@
 class LogEntry < ActiveRecord::Base
   TYPES = %w[
-    gem
+    security
+    gems
     exception
     note
   ].freeze
