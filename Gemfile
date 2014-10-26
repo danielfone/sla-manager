@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 
+ruby '2.1.3'
+
 gem 'rails', '4.1.6'
 gem 'pg'
+gem 'rails_12factor'
+gem 'puma', '~> 2.9.1'
 
 # Assets
 gem 'sass-rails', '~> 4.0.3'
@@ -11,7 +15,6 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'rails_bootstrap_navbar'
-
 
 gem 'jbuilder', '~> 2.0'
 
