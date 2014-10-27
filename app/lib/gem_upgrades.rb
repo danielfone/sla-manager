@@ -4,22 +4,47 @@ module GemUpgrades
   VERSION_REGEX = /(\S+) ([\d\.]+) \(was ([\d\.]+)\)/
 
   def parse(text)
-    text.scan(VERSION_REGEX).each_with_object({}) do |match, hash|
-      gem_name = match[0]
-      from = Gem::Version.new(match[2])
-      to   = Gem::Version.new(match[1])
+    upgrades = text.scan(VERSION_REGEX).each_with_object({}) do |(gem_name, to, from), hash|
+      hash[gem_name] ||= Upgrades.new
+      hash[gem_name].all_from << from
+      hash[gem_name].all_to << to
+    end
 
-      hash[gem_name] = update_versions hash[gem_name], from, to
+    upgrades.update(upgrades) { |_, upgrade| upgrade.as_hash }
+  end
+
+  class Upgrades
+    attr_reader :all_from, :all_to
+
+    VERSIONIFY = lambda { |v| Gem::Version.new v }
+
+    def initialize
+      @all_from = []
+      @all_to = []
+    end
+
+    def from
+      from_versions.min.to_s
+    end
+
+    def to
+      to_versions.max.to_s
+    end
+
+    def from_versions
+      @from_versions ||= all_from.map &VERSIONIFY
+    end
+
+    def to_versions
+      @to_versions ||= all_to.map &VERSIONIFY
+    end
+
+    def as_hash
+      {
+        from: from,
+        to: to,
+      }
     end
   end
 
-  def update_versions(original, from, to)
-    if original.nil?
-      {from: from, to: to}
-    else
-      original[:from] = from if original[:from] >= from
-      original[:to]   = to   if to              >= original[:to]
-      original
-    end
-  end
 end
