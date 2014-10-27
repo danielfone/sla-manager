@@ -5,3 +5,5 @@
 </h2>
 
 <%= render 'form', entry: @entry %>
+
+<%= render 'gem_versions' if @entry.entry_type == 'gems' %>
