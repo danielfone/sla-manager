@@ -17,6 +17,7 @@ gem 'bootstrap_form'
 gem 'rails_bootstrap_navbar'
 
 gem 'jbuilder', '~> 2.0'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'spring'
