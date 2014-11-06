@@ -27,7 +27,7 @@
           <td><%= entry.client_name %></td>
           <td><%= entry.application_name %></td>
           <td><%= entry.entry_type.humanize %></td>
-          <td><%= first_line entry.note %></td>
+          <td><%= parse_note entry %></td>
           <td>
             <%= link_to 'Duplicate', admin_log_entry_duplicate_path(entry), class: 'btn btn-default btn-xs pull-right' %>
           </td>
