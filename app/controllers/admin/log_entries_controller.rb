@@ -1,8 +1,10 @@
 module Admin
   class LogEntriesController < AdminController
 
+    helper_method :application
+
     def index
-      @entries = LogEntry.unpublished
+      @entry_groups = scope.unpublished.order('completed_at DESC').group_by {|e| e.completed_at.strftime "%a, %e %b"}
     end
 
     def new
@@ -16,6 +18,7 @@ module Admin
 
     def duplicate
       @entry = LogEntry.find(params[:log_entry_id]).dup
+      @entry.application = nil
       render 'new'
     end
 
@@ -42,6 +45,10 @@ module Admin
       else
         admin_log_entries_path
       end
+    end
+
+    def scope
+      application ? application.log_entries : LogEntry
     end
 
   end

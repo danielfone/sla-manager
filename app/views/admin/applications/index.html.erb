@@ -17,7 +17,9 @@
       <tr>
         <td><%= app.client_name %></td>
         <td><%= app.name %></td>
-        <td><%= link_to 'New Entry', new_admin_application_log_entry_path(app), class: 'btn btn-default btn-xs' %></td>
+        <td>
+          <%= link_to 'Entries', admin_application_log_entries_path(app), class: 'btn btn-default btn-xs' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
