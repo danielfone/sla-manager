@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     resources :applications do
       resources :log_entries
     end
-    root to: 'log_entries#index'
+    root to: 'applications#index'
   end
 end
