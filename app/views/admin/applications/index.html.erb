@@ -1,0 +1,27 @@
+<h2>
+  Applications
+</h2>
+
+<%- if @apps.any? -%>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Application</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apps.each do |app| %>
+      <tr>
+        <td><%= app.client_name %></td>
+        <td><%= app.name %></td>
+        <td><%= link_to 'New Entry', new_admin_application_log_entry_path(app), class: 'btn btn-default btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%- else -%>
+  <p class="alert alert-info">No applications found.</p>
+<%- end -%>
