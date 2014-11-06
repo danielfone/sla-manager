@@ -14,6 +14,11 @@ module Admin
       @entry = LogEntry.find params[:id]
     end
 
+    def duplicate
+      @entry = LogEntry.find(params[:log_entry_id]).dup
+      render 'new'
+    end
+
     def create
       @entry = LogEntry.create params[:log_entry]
       respond_with @entry, location: redirect_path
