@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 
 ruby File.read('.ruby-version').strip
 
-gem 'rails', '4.1.6'
+gem 'rails', '~> 4.1.6'
 gem 'pg'
 gem 'rails_12factor', group: :production
-gem 'puma', '~> 2.9.1'
+gem 'puma', '~> 2.9'
 
 # Assets
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
