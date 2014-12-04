@@ -8,8 +8,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Client</th>
       <th>Application</th>
       <th>Type</th>
       <th>Note</th>
@@ -18,17 +16,18 @@
 
   <tbody>
     <%- @entry_groups.each do |group_name, entries| -%>
-      <tr>
+      <tr class="active">
         <th colspan="99"><%= group_name %></th>
       </tr>
       <% entries.each do |entry| %>
         <tr>
-          <td><%= link_to entry.completed_at, edit_admin_log_entry_path(entry) %></td>
-          <td><%= entry.client_name %></td>
           <td><%= entry.application_name %></td>
           <td><%= entry.entry_type.humanize %></td>
-          <td><%= parse_note entry %></td>
           <td>
+            <%= parse_note entry %>
+          </td>
+          <td>
+            <%= link_to 'Edit', edit_admin_log_entry_path(entry), class: 'btn btn-default btn-xs pull-right' %>
             <%= link_to 'Duplicate', admin_log_entry_duplicate_path(entry), class: 'btn btn-default btn-xs pull-right' %>
           </td>
         </tr>
