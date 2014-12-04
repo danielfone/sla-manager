@@ -43,7 +43,7 @@ module Admin
       if params[:add]
         new_admin_application_log_entry_path @entry.application
       else
-        admin_log_entries_path
+        admin_application_log_entries_path @entry.application
       end
     end
 
