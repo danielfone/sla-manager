@@ -4,7 +4,7 @@ ruby File.read('.ruby-version')
 
 gem 'rails', '4.1.6'
 gem 'pg'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 gem 'puma', '~> 2.9.1'
 
 # Assets
@@ -28,8 +28,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.1.0', require: false
-  gem 'rspec', '~> 3.1.0', require: false
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec', '~> 3.1.0'
+  gem 'factory_girl_rails'
 end
 
 group :test do
