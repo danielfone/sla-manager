@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @repositories.each do |repository| %>
+    <% @repositories.order('client_id').each do |repository| %>
       <tr>
         <td><%= repository.client_name %></td>
         <td><%= repository.name %></td>
