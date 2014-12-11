@@ -1,14 +1,14 @@
 <h2>
-  <%= "#{application.name} →" if application %>
+  <%= "#{repository.name} →" if repository %>
   Log Entries
-  <%= link_to 'Add Entry', new_admin_log_entry_path(application_id: application), class: 'action' %>
+  <%= link_to 'Add Entry', new_admin_log_entry_path(repository_id: repository), class: 'action' %>
 </h2>
 
 <%- if @entry_groups.any? -%>
 <table class="table">
   <thead>
     <tr>
-      <th>Application</th>
+      <th>Repository</th>
       <th>Type</th>
       <th>Note</th>
     </tr>
@@ -21,7 +21,7 @@
       </tr>
       <% entries.each do |entry| %>
         <tr>
-          <td><%= entry.application_name %></td>
+          <td><%= entry.repository_name %></td>
           <td><%= entry.entry_type.humanize %></td>
           <td>
             <%= parse_note entry %>

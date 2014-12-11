@@ -1,0 +1,29 @@
+<h2>
+  Repositories
+</h2>
+
+<%- if @repositories.any? -%>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Repository</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @repositories.each do |repository| %>
+      <tr>
+        <td><%= repository.client_name %></td>
+        <td><%= repository.name %></td>
+        <td>
+          <%= link_to 'Entries', admin_repository_log_entries_path(repository), class: 'btn btn-default btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%- else -%>
+  <p class="alert alert-info">No repositories found.</p>
+<%- end -%>

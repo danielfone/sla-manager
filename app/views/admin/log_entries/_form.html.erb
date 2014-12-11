@@ -2,7 +2,7 @@
 
   <%= f.alert_message "Please fix the errors below." %>
 
-  <%= f.collection_select :application_id, Application.all, :id, :name, prompt: 'Please select…' %>
+  <%= f.collection_select :repository_id, Repository.all, :id, :name, prompt: 'Please select…' %>
   <%= f.collection_select :entry_type, LogEntry::TYPES, :to_s, :humanize, prompt: 'Please select…' %>
   <%= f.text_area :note %>
 

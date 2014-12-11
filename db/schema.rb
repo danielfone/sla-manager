@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023220807) do
+ActiveRecord::Schema.define(version: 20141211230331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "applications", force: true do |t|
-    t.string   "name"
-    t.integer  "client_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "applications", ["client_id"], name: "index_applications_on_client_id", using: :btree
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -33,17 +24,17 @@ ActiveRecord::Schema.define(version: 20141023220807) do
 
   create_table "log_entries", force: true do |t|
     t.datetime "completed_at"
-    t.integer  "application_id"
+    t.integer  "repository_id"
     t.string   "entry_type"
     t.text     "data"
-    t.boolean  "published",      default: false, null: false
+    t.boolean  "published",     default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "log_entries", ["application_id"], name: "index_log_entries_on_application_id", using: :btree
   add_index "log_entries", ["entry_type"], name: "index_log_entries_on_entry_type", using: :btree
   add_index "log_entries", ["published"], name: "index_log_entries_on_published", using: :btree
+  add_index "log_entries", ["repository_id"], name: "index_log_entries_on_repository_id", using: :btree
 
   create_table "reports", force: true do |t|
     t.integer  "client_id"
@@ -53,5 +44,14 @@ ActiveRecord::Schema.define(version: 20141023220807) do
   end
 
   add_index "reports", ["client_id"], name: "index_reports_on_client_id", using: :btree
+
+  create_table "repositories", force: true do |t|
+    t.string   "name"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "repositories", ["client_id"], name: "index_repositories_on_client_id", using: :btree
 
 end

@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     resources :log_entries do
       get :duplicate
     end
-    resources :applications do
+    resources :repositories do
       resources :log_entries
     end
-    root to: 'applications#index'
+    root to: 'repositories#index'
   end
 end

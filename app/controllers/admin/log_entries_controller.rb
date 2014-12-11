@@ -1,7 +1,7 @@
 module Admin
   class LogEntriesController < AdminController
 
-    helper_method :application
+    helper_method :repository
 
     def index
       @entry_groups = scope.unpublished.order('completed_at DESC').group_by {|e| e.completed_at.strftime "%a, %e %b"}
@@ -9,7 +9,7 @@ module Admin
 
     def new
       @entry = LogEntry.new
-      @entry.application = application if application
+      @entry.repository = repository if repository
     end
 
     def edit
@@ -18,7 +18,7 @@ module Admin
 
     def duplicate
       @entry = LogEntry.find(params[:log_entry_id]).dup
-      @entry.application = nil
+      @entry.repository = nil
       render 'new'
     end
 
@@ -35,20 +35,20 @@ module Admin
 
   private
 
-    def application
-      @application ||= Application.find params[:application_id] if params[:application_id]
+    def repository
+      @repository ||= Repository.find params[:repository_id] if params[:repository_id]
     end
 
     def redirect_path
       if params[:add]
-        new_admin_application_log_entry_path @entry.application
+        new_admin_repository_log_entry_path @entry.repository
       else
-        admin_application_log_entries_path @entry.application
+        admin_repository_log_entries_path @entry.repository
       end
     end
 
     def scope
-      application ? application.log_entries : LogEntry
+      repository ? repository.log_entries : LogEntry
     end
 
   end

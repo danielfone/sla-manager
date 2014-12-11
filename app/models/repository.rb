@@ -1,4 +1,4 @@
-class Application < ActiveRecord::Base
+class Repository < ActiveRecord::Base
   belongs_to :client
   has_many :log_entries
 
