@@ -7,8 +7,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Client</th>
       <th>Repository</th>
+      <th>Client</th>
       <th>Last Entry</th>
       <th></th>
     </tr>
@@ -17,12 +17,9 @@
   <tbody>
     <% @repositories.order('last_entry_at NULLS FIRST').each do |repository| %>
       <tr>
+        <td><%= link_to repository.name, admin_repository_log_entries_path(repository) %></td>
         <td><%= repository.client_name %></td>
-        <td><%= repository.name %></td>
         <td><%= time_ago_or_nil repository.last_entry_at %></td>
-        <td>
-          <%= link_to 'Entries', admin_repository_log_entries_path(repository), class: 'btn btn-default btn-xs' %>
-        </td>
       </tr>
     <% end %>
   </tbody>
