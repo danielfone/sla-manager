@@ -26,4 +26,12 @@ module ApplicationHelper
     safe_join [initial, more.html_safe]
   end
 
+  def time_ago_or_nil(datetime)
+    datetime ? time_ago_span(datetime) : content_tag(:span, '-', class: 'text-muted')
+  end
+
+  def time_ago_span(datetime)
+    content_tag :span, "#{time_ago_in_words datetime} ago", title: datetime
+  end
+
 end

@@ -1,3 +1,4 @@
+
 <h2>
   Repositories
 </h2>
@@ -8,15 +9,17 @@
     <tr>
       <th>Client</th>
       <th>Repository</th>
+      <th>Last Entry</th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @repositories.order('client_id').each do |repository| %>
+    <% @repositories.order('last_entry_at NULLS FIRST').each do |repository| %>
       <tr>
         <td><%= repository.client_name %></td>
         <td><%= repository.name %></td>
+        <td><%= time_ago_or_nil repository.last_entry_at %></td>
         <td>
           <%= link_to 'Entries', admin_repository_log_entries_path(repository), class: 'btn btn-default btn-xs' %>
         </td>

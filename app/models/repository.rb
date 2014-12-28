@@ -7,4 +7,8 @@ class Repository < ActiveRecord::Base
   def client_name
     client.name if client
   end
+
+  def last_log_entry
+    log_entries.order('completed_at').last
+  end
 end
