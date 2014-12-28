@@ -2,13 +2,14 @@ source 'https://rubygems.org'
 
 ruby File.read('.ruby-version').strip
 
-gem 'rails', '~> 4.1.6'
+gem 'rails', '~> 4.2.0'
+gem 'responders', '~> 2.0'
 gem 'pg'
 gem 'rails_12factor', group: :production
 gem 'puma', '~> 2.9'
 
 # Assets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0'
 gem 'jquery-rails'
