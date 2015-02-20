@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220232213) do
+ActiveRecord::Schema.define(version: 20150220233746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,12 @@ ActiveRecord::Schema.define(version: 20150220232213) do
     t.integer  "repository_id"
     t.string   "entry_type",    limit: 255
     t.text     "data"
-    t.boolean  "published",                 default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "report_id"
   end
 
   add_index "log_entries", ["entry_type"], name: "index_log_entries_on_entry_type", using: :btree
-  add_index "log_entries", ["published"], name: "index_log_entries_on_published", using: :btree
   add_index "log_entries", ["report_id"], name: "index_log_entries_on_report_id", using: :btree
   add_index "log_entries", ["repository_id"], name: "index_log_entries_on_repository_id", using: :btree
 
