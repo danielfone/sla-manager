@@ -34,4 +34,8 @@ module ApplicationHelper
     content_tag :span, "#{time_ago_in_words datetime} ago", title: datetime
   end
 
+  def render_month(date)
+    date.strftime '%b %Y'
+  end
+
 end

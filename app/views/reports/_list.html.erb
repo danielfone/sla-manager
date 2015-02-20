@@ -1,0 +1,13 @@
+<% reports.group_by(&:month).each do |month, reports| %>
+  <h5>
+    <%= render_month month %>
+  </h5>
+
+  <ul>
+    <% reports.each do |report| %>
+      <li>
+        <%= link_to report.repository_name, report %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
