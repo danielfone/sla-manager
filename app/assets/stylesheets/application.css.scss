@@ -24,7 +24,7 @@
   a.action {
     @extend .btn;
     @extend .btn-sm;
-    @extend .btn-primary;
+    @extend .btn-default;
     margin: 0 0.5em;
   }
 }
