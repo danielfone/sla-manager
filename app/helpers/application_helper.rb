@@ -38,4 +38,12 @@ module ApplicationHelper
     date.strftime '%b %Y'
   end
 
+ def submenu_item(name, target, active=nil)
+    active = request.fullpath == target if active.nil?
+    html_class = active ? 'active' : ''
+    content_tag :li, class: html_class do
+      link_to name, target
+    end
+  end
+
 end

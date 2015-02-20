@@ -8,7 +8,8 @@ class LogEntry < ActiveRecord::Base
 
   belongs_to :repository
 
-  scope :unpublished, -> { where published: false }
+  scope :unpublished, -> { where report_id: nil }
+  scope :published, -> { where 'report_id is not null' }
 
   store :data, {
     accessors: [

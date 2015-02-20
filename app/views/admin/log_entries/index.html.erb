@@ -4,6 +4,11 @@
   <%= link_to 'Add Entry', new_admin_log_entry_path(repository_id: repository), class: 'action' %>
 </h2>
 
+<ul class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">
+  <%= scoped_submenu_item 'Current', :current %>
+  <%= scoped_submenu_item 'Archived', :archived %>
+</ul>
+
 <%- if @entry_groups.any? -%>
 <table class="table">
   <thead>

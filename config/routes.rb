@@ -4,9 +4,19 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :log_entries do
       get :duplicate
+      collection do
+        get :current, action: :index, scope: :current
+        get :archived, action: :index, scope: :archived
+      end
     end
     resources :repositories do
-      resources :log_entries
+      resources :log_entries do
+        collection do
+          get :current, action: :index, scope: :current
+          get :archived, action: :index, scope: :archived
+        end
+
+      end
     end
     root to: 'repositories#index'
   end
