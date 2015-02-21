@@ -26,6 +26,10 @@ class Report < ActiveRecord::Base
     log_entries.select(&:gems?).map(&:note).join("\n")
   end
 
+  def exceptions
+    log_entries.select(&:exception?)
+  end
+
 private
 
   def generate_token

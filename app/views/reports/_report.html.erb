@@ -13,26 +13,7 @@
     </li>
   </ul>
 </div>
-<div id="exceptions">
-  <h4>Exceptions addressed</h4>
-  <ul class="list-group">
-    <li class="list-group-item list-group-item-success">
-      <span class="glyphicon glyphicon-ok text-success"></span>
-      Unhandled network errors when updating ads in background
-    </li>
-    <li class="list-group-item list-group-item-success">
-      <span class="glyphicon glyphicon-ok text-success"></span>
-      Database query error when generating reports
-    </li>
-    <li class="list-group-item list-group-item-success">
-      <span class="glyphicon glyphicon-ok text-success"></span>
-      Error when attempting unauthorized access
-    </li>
-    <li class="list-group-item list-group-item-success">
-      <span class="glyphicon glyphicon-ok text-success"></span>
-      Javascript error when loading inventory filters
-    </li>
-  </ul>
-</div>
 
-<%= render 'gem_versions', details: @report.gem_details %>
+<%= render 'reports/exceptions', exceptions: @report.exceptions if @report.exceptions.any? %>
+
+<%= render 'reports/gem_versions', details: @report.gem_details if @report.gem_details.present? %>

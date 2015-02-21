@@ -6,4 +6,4 @@
 
 <%= render 'form', entry: @entry %>
 
-<%= render 'gem_versions', details: @entry.note if @entry.gems? %>
+<%= render 'reports/gem_versions', details: @entry.note if @entry.gems? %>
