@@ -4,6 +4,10 @@ class Report < ActiveRecord::Base
 
   has_many :log_entries
 
+  validates_presence_of :repository, unless: :repository_id
+  validates_presence_of :report_date
+
+  before_save :set_client_id
   before_save :generate_token
 
   def to_param
@@ -34,6 +38,10 @@ private
 
   def generate_token
     self.token ||= SecureRandom.uuid
+  end
+
+  def set_client_id
+    self.client_id ||= repository.client_id
   end
 
 end
