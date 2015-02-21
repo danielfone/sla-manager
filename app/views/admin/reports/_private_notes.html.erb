@@ -2,8 +2,8 @@
 <ul>
   <%- entries.each do |entry| %>
     <li>
+      <%= entry.completed_at.to_date.iso8601 %>
       <%= entry.note %>
-      <%= maybe_edit_link entry %>
     </li>
   <% end %>
 </ul>
