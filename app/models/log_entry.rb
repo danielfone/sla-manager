@@ -22,7 +22,7 @@ class LogEntry < ActiveRecord::Base
   validates_presence_of :repository_id, :entry_type, :note
 
   before_save :default_completed_at
-  after_save :update_repo_timestamp
+  after_create :update_repo_timestamp
 
   def client_name
     client.name if client
