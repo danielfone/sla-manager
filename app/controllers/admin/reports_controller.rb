@@ -1,6 +1,10 @@
 module Admin
   class ReportsController < AdminController
 
+    def index
+      @reports = Report.all.includes(:repository, :client).order('report_date DESC')
+    end
+
     def new
       @report = Report.new do |r|
         r.repository = repository

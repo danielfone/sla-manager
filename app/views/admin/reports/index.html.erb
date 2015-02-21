@@ -1,0 +1,34 @@
+<h2>
+  Reports
+</h2>
+
+<%- if @reports.present? -%>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Repository</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%- @reports.group_by(&:month).each do |month, reports| -%>
+      <tr class="active">
+        <th colspan="99"><%= render_month month %></th>
+      </tr>
+      <% reports.each do |report| %>
+        <tr>
+          <td><%= report.client_name %></td>
+          <td><%= report.repository_name %></td>
+          <td>
+            <%= link_to 'View', report_path(report), class: 'btn btn-default btn-xs pull-right' %>
+            <%= link_to 'Edit', edit_admin_report_path(report), class: 'btn btn-default btn-xs pull-right' %>
+          </td>
+        </tr>
+      <% end %>
+    <%- end -%>
+  </tbody>
+</table>
+<%- else -%>
+  <p class="alert alert-info">No reports found.</p>
+<%- end -%>

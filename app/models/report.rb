@@ -22,6 +22,10 @@ class Report < ActiveRecord::Base
     report_date.beginning_of_month
   end
 
+  def client_name
+    client.name if client
+  end
+
   def repository_name
     repository.name if repository
   end
