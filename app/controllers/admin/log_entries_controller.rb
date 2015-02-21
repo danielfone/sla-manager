@@ -45,6 +45,8 @@ module Admin
     def redirect_path
       if params[:add]
         new_admin_repository_log_entry_path @entry.repository
+      elsif @entry.report
+        edit_admin_report_path(@entry.report)
       else
         admin_repository_log_entries_path @entry.repository
       end

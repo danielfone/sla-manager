@@ -1,0 +1,13 @@
+<h2>
+  <%= link_to 'Reports', admin_reports_path %>
+  &rarr;
+  <%= @report.repository_name %>
+</h2>
+
+<%= render 'form', report: @report %>
+<%= render 'private_notes', entries: @report.private_notes if @report.private_notes.any? %>
+
+<h2>Report</h2>
+<%= render 'reports/report', report: @report %>
+<h4>Add Entry</h4>
+<%= render 'log_entry_form', entry: @new_entry %>

@@ -1,0 +1,16 @@
+<%= bootstrap_form_for [:admin, entry] do |f| %>
+
+  <%= f.alert_message "Please fix the errors below." %>
+
+  <%= f.hidden_field :report_id %>
+  <%= f.hidden_field :repository_id %>
+
+  <%= f.collection_select :entry_type, LogEntry::TYPES, :to_s, :humanize, prompt: 'Please select…' %>
+  <%= f.date_field :completed_at %>
+  <%= f.text_area :note %>
+
+  <div class='form-group'>
+    <%= f.primary 'Save' %>
+  </div>
+
+<%- end -%>

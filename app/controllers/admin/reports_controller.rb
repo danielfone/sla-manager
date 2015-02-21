@@ -14,6 +14,15 @@ module Admin
       add_entries
     end
 
+    def edit
+      @report = Report.find_by_token(params[:id])
+      @new_entry = LogEntry.new do |e|
+        e.repository = @report.repository
+        e.completed_at = @report.report_date
+        e.report_id = @report.id
+      end
+    end
+
     def create
       @report = Report.new params[:report]
       add_entries

@@ -8,6 +8,7 @@ class LogEntry < ActiveRecord::Base
   ].freeze
 
   belongs_to :repository
+  belongs_to :report
 
   scope :unpublished, -> { where report_id: nil }
   scope :published, -> { where 'report_id is not null' }
