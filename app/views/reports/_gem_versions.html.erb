@@ -1,6 +1,10 @@
 <div id="gems">
-  <h4>Gems upgraded</h4>
+  <h4>Updates</h4>
+  <% updates = GemUpgrades.parse details %>
 
+  <p>
+    <small class="text-muted"><%= pluralize updates.count, "gem" %> updated</small>
+  </p>
   <table class="table table-condensed table-responsive" style="width:auto">
     <tbody>
     <%- GemUpgrades.parse(details).each do |gem_name, upgrade| -%>
