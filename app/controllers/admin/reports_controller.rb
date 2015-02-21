@@ -5,7 +5,7 @@ module Admin
       @report = Report.new do |r|
         r.repository = repository
         r.report_date = (Date.today - 1.month).end_of_month
-        r.log_entries - repository.log_entries.unpublished
+        r.log_entries = repository.log_entries.unpublished
       end
     end
 

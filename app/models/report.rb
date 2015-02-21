@@ -22,6 +22,10 @@ class Report < ActiveRecord::Base
     repository.name if repository
   end
 
+  def gem_details
+    log_entries.select(&:gems?).map(&:note).join("\n")
+  end
+
 private
 
   def generate_token

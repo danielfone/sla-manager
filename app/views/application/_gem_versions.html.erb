@@ -2,16 +2,8 @@
   <h4>Gems upgraded</h4>
 
   <table class="table table-condensed table-responsive" style="width:auto">
-    <thead>
-      <tr>
-        <th>Gem</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
     <tbody>
-    <%- GemUpgrades.parse(@entry.note).each do |gem_name, upgrade| -%>
+    <%- GemUpgrades.parse(details).each do |gem_name, upgrade| -%>
       <tr>
         <td><%= gem_name %></td>
         <td><%= upgrade[:from] %></td>

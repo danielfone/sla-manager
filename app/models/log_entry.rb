@@ -35,6 +35,10 @@ class LogEntry < ActiveRecord::Base
     repository.client if repository
   end
 
+  def gems?
+    entry_type == 'gems'
+  end
+
 private
 
   def default_completed_at
