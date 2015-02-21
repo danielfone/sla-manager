@@ -10,11 +10,7 @@
         —
         <em><%= note[:mitigation] %></em>
 
-        <% if admin? %>
-          <div class="pull-right">
-            <%= link_to 'Edit', polymorphic_url([:admin, entry], action: :edit) %>
-          </div>
-        <% end %>
+        <%= maybe_edit_link(entry) %>
       </li>
     <% end %>
   </ul>
