@@ -5,7 +5,7 @@
       <% note = SecurityNote.parse entry.note %>
       <li class="list-group-item list-group-item-danger">
         <span class="glyphicon glyphicon-ok text-danger"></span>
-        <%= link_to note[:cve], note[:url] %>
+        <%= link_to note[:cve], note[:url], target: :_blank %>
         <%= note[:description] %>
         —
         <em><%= note[:mitigation] %></em>
