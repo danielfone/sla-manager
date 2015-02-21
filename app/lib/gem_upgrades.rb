@@ -10,7 +10,7 @@ module GemUpgrades
       hash[gem_name].all_to << to
     end
 
-    upgrades.update(upgrades) { |_, upgrade| upgrade.as_hash }
+    upgrades.update(upgrades) { |_, upgrade| upgrade.as_hash }.sort
   end
 
   class Upgrades
