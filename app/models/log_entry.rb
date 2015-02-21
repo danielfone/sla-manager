@@ -47,6 +47,10 @@ class LogEntry < ActiveRecord::Base
     entry_type == 'security'
   end
 
+  def note?
+    entry_type == 'note'
+  end
+
 private
 
   def default_completed_at

@@ -6,7 +6,7 @@ module LogEntriesHelper
   def maybe_edit_link(entry)
     return unless admin?
     content_tag :div, class: 'pull-right' do
-      link_to 'Edit', polymorphic_url([:admin, entry], action: :edit)
+      link_to 'Edit', polymorphic_url([:admin, entry], action: :edit), class: 'btn btn-default btn-xs'
     end
   end
 end

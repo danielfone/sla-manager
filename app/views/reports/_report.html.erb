@@ -1,3 +1,4 @@
 <%= render 'reports/security', security_entries: @report.security_entries if @report.security_entries.any? %>
 <%= render 'reports/exceptions', exceptions: @report.exceptions if @report.exceptions.any? %>
+<%= render 'reports/notes', entries: @report.notes if @report.notes.any? %>
 <%= render 'reports/gem_versions', details: @report.gem_details if @report.gem_details.present? %>

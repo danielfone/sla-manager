@@ -1,0 +1,11 @@
+<div>
+  <h4>Notes</h4>
+  <ul class="list-group">
+    <% @report.notes.each do |entry| %>
+      <li class="list-group-item list-group-item-info">
+        <%= entry.note %>
+        <%= maybe_edit_link entry %>
+      </li>
+    <% end %>
+  </ul>
+</div>
