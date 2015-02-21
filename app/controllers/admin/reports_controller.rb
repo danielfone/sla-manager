@@ -6,8 +6,15 @@ module Admin
         r.repository = repository
         r.report_date = params[:date] || default_date
         r.report_date = r.report_date.end_of_month
-        r.log_entries = default_log_entries.where('completed_at <= ?', r.report_date)
       end
+      add_entries
+    end
+
+    def create
+      @report = Report.new params[:report]
+      add_entries
+      @report.save
+      respond_with @report
     end
 
   private
@@ -21,7 +28,11 @@ module Admin
     end
 
     def default_log_entries
-      repository.log_entries.unpublished.order(:completed_at)
+      @report.repository.log_entries.unpublished.order(:completed_at)
+    end
+
+    def add_entries
+      @report.log_entries = default_log_entries.where('completed_at <= ?', @report.report_date)
     end
 
   end
