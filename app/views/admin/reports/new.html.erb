@@ -1,0 +1,8 @@
+<h2>
+  <%= link_to 'Reports', admin_reports_path %>
+  &rarr;
+  New
+</h2>
+
+<%= render 'form', report: @report %>
+<%= render 'reports/report', report: @report %>

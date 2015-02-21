@@ -2,6 +2,7 @@
   <%= "#{repository.name} →" if repository %>
   Log Entries
   <%= link_to 'Add Entry', new_admin_log_entry_path(repository_id: repository), class: 'action' %>
+  <%= link_to 'New Report', new_admin_report_path(repository_id: repository), class: 'action' if repository %>
 </h2>
 
 <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">

@@ -1,0 +1,11 @@
+<%= bootstrap_form_for [:admin, report] do |f| %>
+  <%= f.alert_message "Please fix the errors below." %>
+
+  <%= f.static_control :repository_name %>
+  <%= f.date_field :report_date %>
+
+  <div class='form-group'>
+    <%= f.primary 'Save' %>
+  </div>
+
+<%- end -%>

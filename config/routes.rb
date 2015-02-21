@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :reports, only: :show
 
   namespace :admin do
+    resources :reports
     resources :log_entries do
       get :duplicate
       collection do

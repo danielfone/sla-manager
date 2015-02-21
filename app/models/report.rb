@@ -2,6 +2,8 @@ class Report < ActiveRecord::Base
   belongs_to :client
   belongs_to :repository
 
+  has_many :log_entries
+
   before_save :generate_token
 
   def to_param
