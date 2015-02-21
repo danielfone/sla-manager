@@ -1,4 +1,4 @@
-<% reports.group_by(&:month).each do |month, reports| %>
+<% reports.includes(:repository, :log_entries).group_by(&:month).each do |month, reports| %>
   <h5>
     <%= render_month month %>
   </h5>
@@ -7,6 +7,7 @@
     <% reports.each do |report| %>
       <li>
         <%= link_to report.repository_name, report %>
+        <span class="mini-badge"><%= report.log_entries.size %></span>
       </li>
     <% end %>
   </ul>

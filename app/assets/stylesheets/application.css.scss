@@ -28,3 +28,11 @@
     margin: 0 0.5em;
   }
 }
+
+.mini-badge {
+  @extend .badge;
+  font-size: 75%;
+  padding: 3px 5px;
+  font-weight: normal;
+  background-color: #ccc;
+}
