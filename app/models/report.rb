@@ -34,6 +34,10 @@ class Report < ActiveRecord::Base
     log_entries.select(&:exception?)
   end
 
+  def security_entries
+    log_entries.select(&:security?)
+  end
+
 private
 
   def generate_token

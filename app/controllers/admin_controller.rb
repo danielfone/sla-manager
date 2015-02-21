@@ -3,4 +3,10 @@ class AdminController < ApplicationController
 
   respond_to :html
 
+private
+
+  def admin?
+    true
+  end
+
 end

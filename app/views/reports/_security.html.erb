@@ -1,0 +1,21 @@
+<div id="security">
+  <h4>Security patches</h4>
+  <ul class="list-group">
+    <% security_entries.each do |entry| %>
+      <% note = SecurityNote.parse entry.note %>
+      <li class="list-group-item list-group-item-danger">
+        <span class="glyphicon glyphicon-ok text-danger"></span>
+        <%= link_to note[:cve], note[:url] %>
+        <%= note[:description] %>
+        —
+        <em><%= note[:mitigation] %></em>
+
+        <% if admin? %>
+          <div class="pull-right">
+            <%= link_to 'Edit', polymorphic_url([:admin, entry], action: :edit) %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

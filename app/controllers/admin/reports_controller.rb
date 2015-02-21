@@ -21,7 +21,7 @@ module Admin
     end
 
     def default_log_entries
-      repository.log_entries.unpublished
+      repository.log_entries.unpublished.order(:completed_at)
     end
 
   end
