@@ -42,6 +42,10 @@ class Report < ActiveRecord::Base
     log_entries.select(&:note?)
   end
 
+  def private_notes
+    log_entries.select(&:private_note?)
+  end
+
 private
 
   def generate_token

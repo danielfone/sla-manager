@@ -7,6 +7,7 @@
 </h2>
 
 <%= render 'form', report: @report %>
+<%= render 'private_notes', entries: @report.private_notes if @report.private_notes.any? %>
 
 <h2>Report Preview</h2>
 <%= render 'reports/report', report: @report %>

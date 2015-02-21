@@ -4,6 +4,7 @@ class LogEntry < ActiveRecord::Base
     gems
     exception
     note
+    private_note
   ].freeze
 
   belongs_to :repository
@@ -49,6 +50,10 @@ class LogEntry < ActiveRecord::Base
 
   def note?
     entry_type == 'note'
+  end
+
+  def private_note?
+    entry_type == 'private_note'
   end
 
 private

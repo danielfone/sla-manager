@@ -1,0 +1,9 @@
+<h4>Private Notes</h4>
+<ul>
+  <%- entries.each do |entry| %>
+    <li>
+      <%= entry.note %>
+      <%= maybe_edit_link entry %>
+    </li>
+  <% end %>
+</ul>
