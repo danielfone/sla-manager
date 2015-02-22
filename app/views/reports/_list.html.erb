@@ -3,12 +3,14 @@
     <%= render_month month %>
   </h5>
 
-  <ul>
+  <ul class="nav nav-pills nav-stacked">
     <% reports.each do |report| %>
-      <li>
-        <%= link_to report.repository_name, report %>
-        <span class="mini-badge"><%= report.log_entries.size %></span>
-      </li>
+      <%= content_tag :li, class: (report == @report ? 'active' : '') do %>
+        <%= link_to report do %>
+          <%= report.repository_name %>
+          <span class="mini-badge"><%= report.log_entries.size %></span>
+        <% end %>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
