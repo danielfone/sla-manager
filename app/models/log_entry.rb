@@ -64,7 +64,8 @@ private
   end
 
   def update_repo_timestamp
-    repository.update_columns last_entry_at: completed_at if completed_at > repository.last_entry_at
+    return if repository.last_entry_at && completed_at > repository.last_entry_at
+    repository.update_columns last_entry_at: completed_at
   end
 
 end

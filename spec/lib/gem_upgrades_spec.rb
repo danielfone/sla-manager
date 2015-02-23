@@ -1,16 +1,21 @@
 RSpec.describe GemUpgrades do
 
   it 'should return a hash of upgrade data' do
-    expect(GemUpgrades.parse example).to eq({
-      "bcrypt" => {
-        from: "3.1.7",
-        to:   "3.1.9",
-      },
-      "mime-types" => {
-        from: "2.1.0",
-        to:   "2.5.0",
-      },
-    })
+    expect(GemUpgrades.parse example).to eq [
+      [
+        "bcrypt",
+        {
+          from: "3.1.7",
+          to:   "3.1.9",
+        },
+      ], [
+        "mime-types",
+        {
+          from: "2.1.0",
+          to:   "2.5.0",
+        },
+      ]
+    ]
   end
 
   def example
