@@ -2,6 +2,14 @@
   Reports
 </h2>
 
+<ul class="nav nav-pills">
+  <%- Client.all.each do |client| %>
+    <li>
+      <%= link_to client.name, client_path(id: client.token) if client.token %>
+    </li>
+  <% end %>
+</ul>
+
 <%- if @reports.present? -%>
 <table class="table">
   <thead>

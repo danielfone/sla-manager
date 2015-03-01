@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :reports, only: :show
+  resources :clients, only: :show
 
   namespace :admin do
     resources :reports

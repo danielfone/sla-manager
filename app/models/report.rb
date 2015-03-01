@@ -4,7 +4,6 @@ class Report < ActiveRecord::Base
 
   has_many :log_entries
 
-  validates_presence_of :repository, unless: :repository_id
   validates_presence_of :report_date
 
   before_save :set_client_id
